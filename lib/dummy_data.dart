@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'models/categories_model.dart';
 
-List DUMMY_CATEGORIES = [
+List DUMMY_CATEGORIES = const[
   CategoryRecipe(
     id: 'c1',
     title: 'Ethiopian',

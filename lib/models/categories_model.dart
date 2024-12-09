@@ -5,6 +5,6 @@ class CategoryRecipe {
   final String title;
   final Color color;
 
-  CategoryRecipe(
+ const CategoryRecipe(
       {required this.id, required this.title, this.color = Colors.orange});
 }
