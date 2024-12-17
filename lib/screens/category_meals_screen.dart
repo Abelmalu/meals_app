@@ -8,13 +8,27 @@ class CategoryMealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)?.settings.arguments as Map;
+    final Map<String, String>? routeArgs =
+        ModalRoute.of(context)?.settings.arguments as Map<String, String>?;
 
-    final categoryId = routeArgs['id'];
-    final categoryTitle = routeArgs['title'];
-    final categoryMeals = DUMMY_MEALS.where((meal) {
-      return meal.categories.contains(categoryId);
-    }).toList();
+    if (routeArgs == null ||
+        routeArgs['id'] == null ||
+        routeArgs['title'] == null) {
+      // Handle the case where arguments are missing or invalid
+      return Scaffold(
+        appBar: AppBar(title: Text('Error')),
+        body: Center(
+          child: Text('Something went wrong!'),
+        ),
+      );
+    }
+
+    final categoryId = routeArgs['id']!;
+    final categoryTitle = routeArgs['title']!;
+
+    final categoryMeals = DUMMY_MEALS
+        .where((meal) => meal.categories.contains(categoryId))
+        .toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -23,6 +37,7 @@ class CategoryMealsScreen extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return  MealItem(
+              id:categoryMeals[index].id,
               title: categoryMeals[index].title,
               imageUrl: categoryMeals[index].imageUrl,
               affordability: categoryMeals[index].affordability,
