@@ -13,7 +13,7 @@ class MealDetailScreen extends StatelessWidget {
 
   Widget buildContainer(Widget child) {
     return Container(
-      height: 100,
+      height: 200,
       width: 300,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
