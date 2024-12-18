@@ -4,6 +4,27 @@ import 'package:meal_app/dummy_data.dart';
 class MealDetailScreen extends StatelessWidget {
   static const routeName = 'meal-detail';
 
+  Widget buildSectionText(BuildContext ctx, String text) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Text(text, style: Theme.of(ctx).textTheme.titleLarge),
+    );
+  }
+
+  Widget buildContainer(Widget child) {
+    return Container(
+      height: 100,
+      width: 300,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final Map routeArgs = ModalRoute.of(context)?.settings.arguments as Map;
@@ -13,35 +34,39 @@ class MealDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('${selectedMeal.title}'),
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 300,
-            width: double.infinity,
-            child: Image.network(selectedMeal.imageUrl, fit: BoxFit.cover),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Text('Ingredients',
-                style: Theme.of(context).textTheme.titleLarge),
-          ),
-          Container(
-        
-            height: 100,
-            width: 300,
-            child: ListView.builder(
-              itemBuilder: (ctx, index) => Card(color:Theme.of(ctx).primaryColorLight,
-                child: Text(selectedMeal.ingredients[index]),
-              ),
-              itemCount: selectedMeal.ingredients.length,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(selectedMeal.imageUrl, fit: BoxFit.cover),
             ),
-            decoration:BoxDecoration(border:Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(10),
-          ),
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.symmetric(vertical: 10),
-          ),
-        ],
+            buildSectionText(context, 'Ingredients'),
+            buildContainer(
+              ListView.builder(
+                itemBuilder: (ctx, index) => Card(
+                  color: Theme.of(ctx).primaryColorLight,
+                  child: Text(selectedMeal.ingredients[index]),
+                ),
+                itemCount: selectedMeal.ingredients.length,
+              ),
+            ),
+            buildSectionText(context, 'Steps '),
+            buildContainer(ListView.builder(
+              itemBuilder: (ctx, index) => Column(children: [
+                ListTile(
+                  leading: CircleAvatar(
+                    child: Text('# ${(index + 1)}'),
+                  ),
+                  title: Text(selectedMeal.steps[index]),
+                ),
+                Divider(),
+              ]),
+              itemCount: selectedMeal.steps.length,
+            )),
+          ],
+        ),
       ),
     );
   }
