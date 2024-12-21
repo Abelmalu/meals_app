@@ -37,8 +37,10 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('${selectedMeal.title}'),
+        backgroundColor: Color.fromARGB(117, 143, 46, 8),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromARGB(117, 143, 46, 8),
         child: Icon(isFavorite(mealId)?Icons.star:Icons.star_border),
         onPressed: () {
           toggleFavorite(mealId);
@@ -56,8 +58,10 @@ class MealDetailScreen extends StatelessWidget {
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(ctx).primaryColorLight,
-                  child: Text(selectedMeal.ingredients[index]),
+                  // color: Theme.of(ctx).primaryColorLight,
+                  child: Text(selectedMeal.ingredients[index],style: TextStyle(color: Color.fromARGB(200, 143, 46, 8),
+                  fontSize: 18,
+                    ),),
                 ),
                 itemCount: selectedMeal.ingredients.length,
               ),
@@ -67,7 +71,8 @@ class MealDetailScreen extends StatelessWidget {
               itemBuilder: (ctx, index) => Column(children: [
                 ListTile(
                   leading: CircleAvatar(
-                    child: Text('# ${(index + 1)}'),
+                    child: Text('# ${(index + 1)}',style:TextStyle(color:Colors.white)),
+                    backgroundColor: Color.fromARGB(117, 143, 46, 8),
                   ),
                   title: Text(selectedMeal.steps[index]),
                 ),

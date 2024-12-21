@@ -14,17 +14,15 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  List<Map<String, dynamic>> ?_pages;
+  List<Map<String, dynamic>>? _pages;
   int _selectedPageIndex = 0;
   @override
   void initState() {
     // TODO: implement initState
-     _pages= [
-
-
-    {'page': CategoriesScreen(), 'title': 'Categories'},
-    {'page': FavoritesScreen(widget.favoriteMeals), 'title': 'Favorites'}
-  ];
+    _pages = [
+      {'page': CategoriesScreen(), 'title': 'Categories'},
+      {'page': FavoritesScreen(widget.favoriteMeals), 'title': 'Favorites'}
+    ];
     super.initState();
   }
 
@@ -40,15 +38,16 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text(_pages![_selectedPageIndex]['title']),
-          backgroundColor: Theme.of(context).primaryColor,
+
+          backgroundColor: Color.fromARGB(117, 143, 46, 8),
         ),
         drawer: MainDrawer(),
         body: _pages![_selectedPageIndex]['page'],
         bottomNavigationBar: BottomNavigationBar(
             onTap: _selectPage,
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Color.fromARGB(117, 143, 46, 8),
             unselectedItemColor: Colors.white,
-            selectedItemColor: Colors.yellow,
+            selectedItemColor: Color.fromARGB(255, 3, 29, 51),
             currentIndex: _selectedPageIndex,
             items: const [
               BottomNavigationBarItem(

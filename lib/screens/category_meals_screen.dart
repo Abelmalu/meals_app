@@ -70,6 +70,8 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(categoryTitle),
+        backgroundColor: Color.fromARGB(117, 143, 46, 8),
+
       ),
       body: ListView.builder(
           itemBuilder: (ctx, index) {

@@ -106,7 +106,8 @@ class MealItem extends StatelessWidget {
                       SizedBox(
                         width: 6,
                       ),
-                      Text(affordabilityText),
+                      
+                      Text('$duration min'),
                     ],
                   ),
                   Row(
@@ -128,7 +129,8 @@ class MealItem extends StatelessWidget {
                       SizedBox(
                         width: 6,
                       ),
-                      Text(complexityText),
+                      
+                      Text(affordabilityText),
                     ],
                   ),
                 ],

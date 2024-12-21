@@ -19,11 +19,9 @@ class _FilterScreenState extends State<FilterScreen> {
   var _vegan = false;
   var _lactoseFree = false;
 
-
-
-  @override 
-initState() {
-     _glutenFree = widget.currentFilters['gluten'] ?? false;
+  @override
+  initState() {
+    _glutenFree = widget.currentFilters['gluten'] ?? false;
     _lactoseFree = widget.currentFilters['lactose'] ?? false;
     _vegetarian = widget.currentFilters['vegetarian'] ?? false;
     _vegan = widget.currentFilters['vegan'] ?? false;
@@ -35,6 +33,7 @@ initState() {
     return SwitchListTile(
       title: Text(title),
       value: status,
+      activeColor:Color.fromARGB(117, 143, 46, 8), 
       subtitle: Text(subtitle),
       onChanged: upDateValue,
     );
@@ -43,9 +42,14 @@ initState() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('your filters'), actions: <Widget>[
+      appBar: AppBar(title: Text('your filters'), 
+      backgroundColor: Color.fromARGB(117, 143, 46, 8),
+      actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.save),
+          icon: Icon(Icons.save,),
+          tooltip: 'Save',
+          
+          
           onPressed: () {
             Map<String, bool> selectedFilters = {
               'gluten': _glutenFree,
@@ -53,7 +57,7 @@ initState() {
               'vegan': _vegan,
               'vegetarian': _vegetarian
             };
-            print(selectedFilters);
+           
             widget.saveFilters(selectedFilters);
           },
         ),
@@ -64,7 +68,7 @@ initState() {
           Container(
             padding: EdgeInsets.all(20),
             child: Text(
-              'Adjust your mean selection,',
+              'Adjust your meal selection,',
             ),
           ),
           Expanded(

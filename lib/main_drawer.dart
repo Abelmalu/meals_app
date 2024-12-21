@@ -22,7 +22,8 @@ class MainDrawer extends StatelessWidget {
       child: Column(children: [
         Container(
           height: 120,
-          color: Theme.of(context).primaryColorLight,
+          
+          color: Color.fromARGB(117, 143, 46, 8),
           width: double.infinity,
           alignment: Alignment.centerLeft,
           child: Text(

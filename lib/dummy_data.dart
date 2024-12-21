@@ -4,61 +4,58 @@ import 'models/meal.dart';
 
 const DUMMY_CATEGORIES = const [
   Category(
-    id: 'c1',
-    title: 'Italian',
-    color: Colors.purple,
-  ),
+      id: 'c9',
+      title: 'Ethiopian',
+      color: Color.fromARGB(255, 32, 80, 82),
+      imageUrl: 'assets/icons/ethiopian.png'),
   Category(
-    id: 'c2',
-    title: 'Quick & Easy',
-    color: Colors.red,
-  ),
+      id: 'c1',
+      title: 'Italian',
+      color: Colors.purple,
+      imageUrl: 'assets/icons/italian.png'),
   Category(
-    id: 'c3',
-    title: 'Hamburgers',
-    color: Colors.orange,
-  ),
+      id: 'c2',
+      title: 'Quick & Easy',
+      color: Colors.red,
+      imageUrl: 'assets/icons/fastfood.png'),
   Category(
-    id: 'c4',
-    title: 'German',
-    color: Colors.amber,
-  ),
+      id: 'c3',
+      title: 'Hamburgers',
+      color: Colors.orange,
+      imageUrl: 'assets/icons/hamburger.png'),
   Category(
-    id: 'c5',
-    title: 'Light & Lovely',
-    color: Colors.blue,
-  ),
+      id: 'c4',
+      title: 'German',
+      color: Colors.amber,
+      imageUrl: 'assets/icons/german.png'),
   Category(
-    id: 'c6',
-    title: 'Exotic',
-    color: Colors.green,
-  ),
+      id: 'c5',
+      title: 'Light & Lovely',
+      color: Colors.blue,
+      imageUrl: 'assets/icons/vegetarian.png'),
   Category(
-    id: 'c7',
-    title: 'Breakfast',
-    color: Colors.lightBlue,
-  ),
+      id: 'c6',
+      title: 'Exotic',
+      color: Colors.green,
+      imageUrl: 'assets/icons/exotic.png'),
   Category(
-    id: 'c8',
-    title: 'Asian',
-    color: Colors.lightGreen,
-  ),
+      id: 'c7',
+      title: 'Breakfast',
+      color: Colors.lightBlue,
+      imageUrl: 'assets/icons/breakfast.png'),
   Category(
-    id: 'c9',
-    title: 'French',
-    color: Colors.pink,
-  ),
+      id: 'c8',
+      title: 'Asian',
+      color: Colors.lightGreen,
+      imageUrl: 'assets/icons/asian.png'),
   Category(
-    id: 'c10',
-    title: 'Summer',
-    color: Colors.teal,
-  ),
+      id: 'c10',
+      title: 'Summer',
+      color: Colors.teal,
+      imageUrl: 'assets/icons/summer.png'),
 ];
 
-
-
-
-const DUMMY_MEALS =  [
+const DUMMY_MEALS = [
   Meal(
     id: 'm1',
     categories: [
@@ -408,4 +405,3 @@ const DUMMY_MEALS =  [
     isLactoseFree: true,
   ),
 ];
-

@@ -75,6 +75,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      
+      
       // home: CategoriesScreen(),
       routes: {
         '/': (ctx) => TabsScreen(_favoriteMeals),
@@ -85,22 +88,8 @@ class _MyAppState extends State<MyApp> {
       },
       theme: ThemeData(
         useMaterial3: false,
-        primarySwatch: Colors.pink,
-        colorScheme: ColorScheme.light(
-          secondary: Colors.amber, // This is the new accent color
-        ),
-        // textTheme:ThemeData.light().textTheme.copyWith(
-        //   bodyText1: TextStyle(
-        //     color:Color.fromRGBO(28, 51, 51, 1)
-        //   ),
-        //   bodyText2: TextStyle(
-        //     color:Color.fromRGBO(28, 51, 51, 1)
-        //   ),
-        //   titleLarge: TextStyle(
-        //     fontSize: 20,
-        //     fontWeight: FontWeight.bold,
-        //   )
-        // ),
+         primaryColor: Color.fromARGB(117, 143, 46, 8),
+       
       ),
     );
   }
